@@ -1,3 +1,17 @@
 <h2>Olympic games app</h2>
 <hr />
-<p>{{ (olympics$ | async)?.length }} data loaded</p>
+
+<h2>Medals per Country</h2>
+
+<app-card [data]='{title: "Number of JOs", count: countries.length}'></app-card>
+<app-card [data]='{title: "Number of countries", count: countries.length}'></app-card>
+
+
+<app-chart-pie [data]="countries"></app-chart-pie>
+
+<!-- <div *ngFor="let country of countries">
+    <p>{{ country.country}}</p>
+    <div *ngFor="let participation of country.participations">
+        <p>{{ participation.city }}</p>
+    </div>
+</div> -->
