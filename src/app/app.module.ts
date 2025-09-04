@@ -9,8 +9,8 @@ import { ChartPieComponent } from "src/app/components/chart-pie/chart-pie.compon
 import { CardComponent } from './components/card/card.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NotFoundComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, ChartPieComponent, CardComponent],
+  declarations: [AppComponent, HomeComponent, NotFoundComponent, ChartPieComponent, CardComponent],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
