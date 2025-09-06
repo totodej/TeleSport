@@ -1,7 +1,13 @@
-<div class="title">Medals per Country</div>
-<div class="cards">
-    <app-card [data]='{title: "Number of JOs", count: getNumberJOs()}' />
-    <app-card [data]='{title: "Number of countries", count: countries.length}' />
-</div>
+<header>
+    <div class="title">Medals per Country</div>
+</header>
+<main>
+    <div class="cards">
+        <app-card [data]='{title: "Number of JOs", count: getNumberJOs()}' />
+        <app-card [data]='{title: "Number of countries", count: countries.length}' />
+    </div>
+    <div class="chart">
+        <app-chart-pie [data]="countries"></app-chart-pie>
+    </div>
+</main> 
 
-<app-chart-pie [data]="countries"></app-chart-pie>

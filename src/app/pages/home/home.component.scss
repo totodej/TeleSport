@@ -1,18 +1,47 @@
-
-.title {
-    padding: 10px;
-    background-color: #04838F;
-    width: 300px;
-    color: white;
-    border-radius: 10px;
-    text-align: center;
-    margin-bottom: 20px;
-    font-weight: 400;
-    font-size: 24px
+header {
+    width: 100%;
+    
+    .title {
+        padding: 10px;
+        background-color: #04838F;
+        width: 300px;
+        color: white;
+        border-radius: 10px;
+        text-align: center;
+        margin: 20px auto;
+        font-weight: 400;
+        font-size: 24px
+    }
 }
 
-.cards {
+main {
     display: flex;
-    justify-content: space-around;
-    width: 500px;
+    flex-direction: column;
+    align-items: center; 
+
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around; 
+        gap: 20px;
+        width: 100%;
+        max-width: 500px; 
+    }
+    
+    .chart {
+        width: 100%;
+        max-width: 600px;
+        margin-top: 20px;
+    }
+
+    app-card {
+        flex: 1 1 45%;
+        min-width: 200px;
+    }
+
+    @media (max-width: 600px) {
+        .chart {
+            max-width: 300px;
+        }
+    }
 }
