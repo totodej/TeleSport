@@ -1,4 +1,18 @@
-section {
+
+.title {
+    padding: 10px;
+    background-color: #04838F;
+    width: 300px;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 24px
+}
+
+.cards {
     display: flex;
     justify-content: space-around;
+    width: 500px;
 }

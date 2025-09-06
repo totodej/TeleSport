@@ -11,15 +11,23 @@ import { Country } from 'src/app/core/models/Olympic';
 })
 export class HomeComponent implements OnInit {
   public olympics$: Observable<any> = of(null);
-  public countries!: Country[];
+  public countries: Country[] = [];
 
   constructor(private olympicService: OlympicService) {}
 
   ngOnInit(): void {
     this.olympics$ = this.olympicService.getOlympics();
     this.olympics$.subscribe(data => {
-      this.countries = data;
-      console.log("countries ====>", this.countries)
-    })
+      this.countries = data ?? [];
+      console.log('countries', this.countries);
+      this.getNumberJOs();
+    });
   };
+  
+  getNumberJOs(): number {
+    const countries = this.countries ?? [];
+    const allCities = countries.flatMap(country => country.participations.map(participation => participation.city));
+
+    return new Set(allCities).size;
+  }
 }

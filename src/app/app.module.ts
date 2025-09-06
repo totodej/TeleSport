@@ -7,11 +7,21 @@ import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ChartPieComponent } from "src/app/components/chart-pie/chart-pie.component";
 import { CardComponent } from './components/card/card.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeuix/themes/aura';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NotFoundComponent, ChartPieComponent, CardComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [],
+  declarations: [AppComponent, HomeComponent, NotFoundComponent],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, ChartPieComponent, CardComponent],
+  providers: [
+    provideAnimationsAsync(),
+        providePrimeNG({
+            // theme: {
+            //     preset: Aura
+            // }
+        })
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
