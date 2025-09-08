@@ -7,5 +7,4 @@ import { Component, Input } from '@angular/core';
 })
 export class CardComponent {
   @Input() data!: {title: string, count: number};
-
 }

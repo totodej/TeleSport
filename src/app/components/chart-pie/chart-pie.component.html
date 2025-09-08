@@ -1,1 +1,1 @@
-<p-chart type="pie" [data]="chartData" [options]="options" class="w-full md:w-[30rem]" />
+<p-chart type="pie" [data]="chartData" [options]="options" class="w-full md:w-[30rem]" (onDataSelect)="onSelect($event)"></p-chart>
