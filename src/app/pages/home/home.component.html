@@ -1,13 +1,14 @@
-<header>
-    <app-title title="Medals per Country"></app-title>
-</header>
-<main>
-    <div class="cards">
-        <app-card [data]='{title: "Number of JOs", count: getNumberJOs()}' />
-        <app-card [data]='{title: "Number of countries", count: countries.length}' />
-    </div>
-    <div class="chart">
-        <app-chart-pie [data]="countries"></app-chart-pie>
-    </div>
-</main> 
-
+@if(countries) {
+    <header>
+        <app-title title="Medals per Country"></app-title>
+    </header>
+    <main>
+        <div class="cards">
+            <app-card [data]='{title: "Number of JOs", count: JOsTotal}' />
+            <app-card [data]='{title: "Number of countries", count: countries.length}' />
+        </div>
+        <div class="chart">
+            <app-chart-pie [data]="countries" />
+        </div>
+    </main>     
+}

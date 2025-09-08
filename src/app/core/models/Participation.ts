@@ -4,4 +4,4 @@ export interface Participation {
     year: number,
     athleteCount: number,
     medalsCount: number,
-}
+};

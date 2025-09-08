@@ -23,9 +23,9 @@ export class OlympicService {
         return caught;
       })
     );
-  }
+  };
 
   getOlympics() {
     return this.olympics$.asObservable();
-  }
+  };
 }

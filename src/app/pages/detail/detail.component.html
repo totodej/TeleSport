@@ -1,0 +1,16 @@
+@if (country) {
+    <header>
+        <app-title title="{{country.country}}"></app-title>
+    </header>
+    <main>
+        <div class="cards">
+            <app-card [data]='{title: "Number of entries", count: JOsTotal}' />
+            <app-card [data]='{title: "Total number of medals", count: medalsTotal}' />
+            <app-card [data]='{title: "Total number of athletes", count: athletesTotal}' />
+        </div>
+        <div class="line">
+            <app-line-pie [data]="country" />
+        </div>
+        <a class="link" routerLink="/dashboard">Back</a>
+    </main>
+}

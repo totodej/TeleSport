@@ -1,0 +1,40 @@
+header {
+    width: 100%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .cards {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        max-width: 900px;
+    }
+
+    .line {
+        width: 100%;
+        max-width: 900px;
+        margin-top: 20px;
+    }
+
+    .link {
+        margin: 20px 0;
+        text-align: center;
+        color: black
+    }
+
+    @media (max-width: 700px) {
+        .cards {
+            flex-direction: column;
+        }
+
+        .line {
+            margin: 20px 20px
+        }
+    }
+}
