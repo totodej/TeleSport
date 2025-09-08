@@ -17,8 +17,7 @@ export class HomeComponent implements OnInit {
   constructor(private olympicService: OlympicService) {}
 
   ngOnInit(): void {
-    this.olympics$ = this.olympicService.getOlympics();
-    this.olympics$.subscribe((data) => {
+    this.olympicService.getOlympics().subscribe((data) => {
       this.countries = data;
       this.getNumberJOs();
     });

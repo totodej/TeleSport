@@ -24,15 +24,12 @@ export class DetailComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
 
-    this.olympicService.getOlympics().subscribe(data => {
-      if(data){
-        this.country = data.find( (country:any) => country.id === Number(id));
-        console.log('Fetched country data:', this.country);
-        this.getAthletesTotal();
-        this.getMedalsTotal();
-        this.getNumberJOs();
-      }
-    })  
+    this.olympicService.getOlympicById(+id!).subscribe(data => {
+      this.country = data;
+      this.getAthletesTotal();
+      this.getMedalsTotal();
+      this.getNumberJOs();
+    });
   }
 
   getAthletesTotal(): void {

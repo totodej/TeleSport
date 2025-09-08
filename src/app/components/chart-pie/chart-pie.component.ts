@@ -33,7 +33,6 @@ export class ChartPieComponent implements OnInit {
         }
     });
 
-
   ngOnInit(): void {
     this.getTotalMedals();
     this.initChart();
@@ -83,7 +82,7 @@ export class ChartPieComponent implements OnInit {
     if (index !== undefined && this.data[index]) {
       let country = this.data[index];
 
-      this.router.navigate(['/detail', country.id]);
+      this.router.navigateByUrl(`/detail/${country.id}`);
     } else {
       console.error('Impossible de récupérer le pays pour l’index', index, event);
     }
