@@ -18,8 +18,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.olympicService.getOlympics().subscribe((data) => {
-      this.countries = data;
-      this.getNumberJOs();
+      if(data){
+        this.countries = data;
+        this.getNumberJOs();
+      }
     });
   }
 

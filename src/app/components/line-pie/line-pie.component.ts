@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, effect, inject, Input, OnInit, PLATFORM_ID } from '@angular/core';
+import { ChangeDetectorRef, Component, effect, inject, Input, PLATFORM_ID } from '@angular/core';
 import { ChartModule } from 'primeng/chart';
 import { AppConfigService } from 'src/app/core/services/appconfig.service';
 import { DesignerService } from '../../core/services/designer.service';
@@ -13,7 +13,7 @@ import { Participation } from 'src/app/core/models/Participation';
   templateUrl: './line-pie.component.html',
   styleUrl: './line-pie.component.scss'
 })
-export class LinePieComponent implements OnInit {
+export class LinePieComponent {
   @Input() data!: Country;
   chartData!: ChartData;
   medals: number[] = [];
@@ -33,11 +33,13 @@ export class LinePieComponent implements OnInit {
       }
     }
   });
-
-  ngOnInit(): void {
-    this.getMedals();
-    this.getYears();
-    this.initChart();
+  
+  ngOnChanges(): void {
+    if(this.data) {
+      this.getMedals();
+      this.getYears();
+      this.initChart();
+    }
   };
 
   initChart(): void {

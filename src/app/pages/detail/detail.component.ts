@@ -25,10 +25,12 @@ export class DetailComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
 
     this.olympicService.getOlympicById(+id!).subscribe(data => {
-      this.country = data;
-      this.getAthletesTotal();
-      this.getMedalsTotal();
-      this.getNumberJOs();
+      if(data) {
+        this.country = data;
+        this.getAthletesTotal();
+        this.getMedalsTotal();
+        this.getNumberJOs();
+      }
     });
   }
 

@@ -1,4 +1,4 @@
-import { Component, Input, PLATFORM_ID, inject, ChangeDetectorRef, effect, OnInit } from '@angular/core';
+import { Component, Input, PLATFORM_ID, inject, ChangeDetectorRef, effect } from '@angular/core';
 import { Country } from 'src/app/core/models/Olympic';
 import { ChartModule } from 'primeng/chart';
 import { AppConfigService } from '../../core/services/appconfig.service';
@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
     styleUrl: './chart-pie.component.scss'
 })
 
-export class ChartPieComponent implements OnInit {
+export class ChartPieComponent {
   @Input() data!: Country[];
   totalMedals: number[] = [];
   chartData: any;
@@ -33,9 +33,11 @@ export class ChartPieComponent implements OnInit {
         }
     });
 
-  ngOnInit(): void {
-    this.getTotalMedals();
-    this.initChart();
+  ngOnChanges(): void {
+    if(this.data) {
+      this.getTotalMedals();
+      this.initChart();
+    }
   };
 
   initChart(): void {
