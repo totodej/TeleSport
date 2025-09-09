@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   constructor(private olympicService: OlympicService) {}
 
   ngOnInit(): void {
+    // Fetch all Olympic data
     this.olympicService.getOlympics().subscribe((data) => {
       if(data){
         this.countries = data;
@@ -25,6 +26,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  // Calculate the total number of unique Olympic Games across all countries
   getNumberJOs(): void {
     const allCities = this.countries.flatMap((country) =>
       country.participations.map((participation) => participation.city)

@@ -23,8 +23,10 @@ export class DetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private olympicService: OlympicService) { }
   
   ngOnInit(): void {
+    // Get the country ID from the route parameters
     const id = this.route.snapshot.paramMap.get('id');
 
+    // Fetch the Olympic data for the given country ID
     this.olympicService.getOlympicById(+id!).subscribe(data => {
       if(data) {
         this.country = data;
@@ -35,16 +37,19 @@ export class DetailComponent implements OnInit {
     });
   }
 
+  // Calculate the total number of athletes
   getAthletesTotal(): void {
     const athletes = this.country.participations.map((participation: Participation) => participation.athleteCount);
     this.athletesTotal = athletes.reduce((sum, count) => sum + count, 0);
   }
 
+  // Calculate the total number of medals
   getMedalsTotal(): void {
     const medals = this.country.participations.map((participation: Participation) => participation.medalsCount);
     this.medalsTotal = medals.reduce((sum, count) => sum + count, 0);
   }
 
+  // Calculate the total number of Olympic Games the country participated in
   getNumberJOs(): void {
     const jos = this.country.participations.map((participation: Participation) => participation.city);
     this.JOsTotal = new Set(jos).size;

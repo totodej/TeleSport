@@ -25,10 +25,12 @@ export class OlympicService {
     );
   };
 
+  // Get the observable of the Olympic data
   getOlympics() {
     return this.olympics$.asObservable();
   };
 
+  // Get a specific Olympic data by its ID
   getOlympicById(id:number) {
     return this.olympics$.asObservable().pipe(
       map((olympics) => olympics?.find((olympic: { id: number }) => olympic.id === id))

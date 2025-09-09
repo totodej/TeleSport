@@ -25,6 +25,7 @@ export class ChartPieComponent {
 
   constructor(private cd: ChangeDetectorRef, private router: Router) {}
 
+  // Reinitialize the chart when the theme changes
   themeEffect = effect(() => {
         if (this.configService.transitionComplete()) {
             if (this.designerService.preset()) {
@@ -33,6 +34,7 @@ export class ChartPieComponent {
         }
     });
 
+  // React to changes in the input data
   ngOnChanges(): void {
     if(this.data) {
       this.getTotalMedals();
@@ -40,6 +42,7 @@ export class ChartPieComponent {
     }
   };
 
+  // Initialize the chart with data and options
   initChart(): void {
     if (isPlatformBrowser(this.platformId)) {
       const documentStyle = getComputedStyle(document.documentElement);
@@ -70,6 +73,7 @@ export class ChartPieComponent {
     }
   };
 
+  // Calculate the total medals for each country
   getTotalMedals(data: Country[] = this.data): void {
     const totalMedals = data.map(country => 
       country.participations.reduce((sum, p) => sum + p.medalsCount, 0)
@@ -78,6 +82,7 @@ export class ChartPieComponent {
     this.totalMedals = totalMedals;
   };
 
+  // Navigate to the detail page of the selected country
   onSelect(event: any): void { 
     const index = event.element.index;
 

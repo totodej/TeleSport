@@ -26,6 +26,7 @@ export class LinePieComponent {
 
   constructor(private cd: ChangeDetectorRef) { }
 
+  // Reinitialize the chart when the theme changes
   themeEffect = effect(() => {
     if (this.configService.transitionComplete()) {
       if (this.designerService.preset()) {
@@ -34,6 +35,7 @@ export class LinePieComponent {
     }
   });
   
+  // React to changes in the input data
   ngOnChanges(): void {
     if(this.data) {
       this.getMedals();
@@ -42,6 +44,7 @@ export class LinePieComponent {
     }
   };
 
+  // Initialize the chart with data and options
   initChart(): void {
     if (isPlatformBrowser(this.platformId)) {
       const documentStyle = getComputedStyle(document.documentElement);
@@ -97,10 +100,12 @@ export class LinePieComponent {
     }
   };
 
+  // Get the medals count
   getMedals(): void {
     this.medals = this.data.participations.map((participation: Participation) => participation.medalsCount);
   };
 
+  // Get the years of participation
   getYears(): void {
     this.years = this.data.participations.map((participation: Participation) => participation.year);
   };
