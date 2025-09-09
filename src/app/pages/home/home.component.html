@@ -10,5 +10,7 @@
         <div class="chart">
             <app-chart-pie [data]="countries" />
         </div>
-    </main>     
+    </main> 
+} @else {
+    <app-loading></app-loading>
 }

@@ -6,10 +6,11 @@ import { OlympicService } from 'src/app/core/services/olympic.service';
 import { LinePieComponent } from "src/app/components/line-pie/line-pie.component";
 import { CardComponent } from 'src/app/components/card/card.component';
 import { Participation } from 'src/app/core/models/Participation';
+import { LoadingComponent } from 'src/app/components/loading/loading.component';
 
 @Component({
   selector: 'app-detail',
-  imports: [TitleComponent, LinePieComponent, CardComponent, RouterLink],
+  imports: [TitleComponent, LinePieComponent, CardComponent, RouterLink, LoadingComponent],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.scss',
 })

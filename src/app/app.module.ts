@@ -11,10 +11,11 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { providePrimeNG } from 'primeng/config';
 import { TitleComponent } from "src/app/components/title/title.component";
 import { LinePieComponent } from './components/line-pie/line-pie.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, NotFoundComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, ChartPieComponent, CardComponent, TitleComponent,LinePieComponent],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, ChartPieComponent, CardComponent, TitleComponent, LinePieComponent, LoadingComponent],
   providers: [
     provideAnimationsAsync(),
         providePrimeNG()
