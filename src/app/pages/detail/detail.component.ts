@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { TitleComponent } from 'src/app/components/title/title.component';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Country } from 'src/app/core/models/Olympic';
@@ -15,6 +16,7 @@ import { LoadingComponent } from 'src/app/components/loading/loading.component';
   styleUrl: './detail.component.scss',
 })
 export class DetailComponent implements OnInit {
+  private subscription?: Subscription;
   country!:Country;
   athletesTotal!: number;
   medalsTotal!: number;
@@ -27,7 +29,7 @@ export class DetailComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
 
     // Fetch the Olympic data for the given country ID
-    this.olympicService.getOlympicById(+id!).subscribe(data => {
+    this.subscription = this.olympicService.getOlympicById(+id!).subscribe(data => {
       if(data) {
         this.country = data;
         this.getAthletesTotal();
@@ -35,6 +37,10 @@ export class DetailComponent implements OnInit {
         this.getNumberJOs();
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
   }
 
   // Calculate the total number of athletes

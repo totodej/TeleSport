@@ -5,6 +5,7 @@ import { AppConfigService } from '../../core/services/appconfig.service';
 import { isPlatformBrowser } from '@angular/common';
 import { DesignerService } from '../../core/services/designer.service';
 import { Router } from '@angular/router';
+import { ChartData, ChartOptions,  ChartEvent, ActiveElement } from 'chart.js';
 
 @Component({
     selector: 'app-chart-pie',
@@ -16,8 +17,8 @@ import { Router } from '@angular/router';
 export class ChartPieComponent {
   @Input() data!: Country[];
   totalMedals: number[] = [];
-  chartData: any;
-  options: any;
+  chartData!: ChartData;
+  options!: ChartOptions;
   platformId = inject(PLATFORM_ID);
 
   configService = inject(AppConfigService);
@@ -83,7 +84,7 @@ export class ChartPieComponent {
   };
 
   // Navigate to the detail page of the selected country
-  onSelect(event: any): void { 
+  onSelect(event: { event: ChartEvent; element: ActiveElement }): void { 
     const index = event.element.index;
 
     if (index !== undefined && this.data[index]) {
