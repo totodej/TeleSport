@@ -4,7 +4,7 @@ import { AppConfigService } from 'src/app/core/services/appconfig.service';
 import { DesignerService } from '../../core/services/designer.service';
 import { isPlatformBrowser } from '@angular/common';
 import { Country } from 'src/app/core/models/Olympic';
-import { ChartData } from 'chart.js';
+import { ChartData, ChartOptions } from 'chart.js';
 import { Participation } from 'src/app/core/models/Participation';
 
 @Component({
@@ -16,9 +16,9 @@ import { Participation } from 'src/app/core/models/Participation';
 export class LinePieComponent {
   @Input() data!: Country;
   chartData!: ChartData;
+  options!: ChartOptions;
   medals: number[] = [];
   years: number[] = [];
-  options: any;
 
   platformId = inject(PLATFORM_ID);
   configService = inject(AppConfigService);
@@ -82,7 +82,6 @@ export class LinePieComponent {
             },
             grid: {
               color: surfaceBorder,
-              drawBorder: false
             }
           },
           y: {
@@ -91,7 +90,6 @@ export class LinePieComponent {
             },
             grid: {
               color: surfaceBorder,
-              drawBorder: false
             }
           }
         }
