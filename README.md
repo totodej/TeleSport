@@ -13,7 +13,6 @@ Interactive dashboard application for visualizing Olympic Games statistics. Buil
 
 - Node.js (version 20 or higher)
 - npm (comes with Node.js)
-- Angular CLI: `npm install -g @angular/cli`
 
 ## Development
 
