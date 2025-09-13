@@ -16,7 +16,7 @@ import { LoadingComponent } from 'src/app/components/loading/loading.component';
   styleUrl: './detail.component.scss',
 })
 export class DetailComponent implements OnInit {
-  private subscription?: Subscription;
+  private subscription?: Subscription = new Subscription;
   country!:Country;
   athletesTotal!: number;
   medalsTotal!: number;

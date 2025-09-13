@@ -11,7 +11,7 @@ import { Country } from 'src/app/core/models/Olympic';
 })
 export class HomeComponent implements OnInit {
   public olympics$: Observable<Country[]> = of([]);
-  private subscription?: Subscription;
+  private subscription?: Subscription = new Subscription;;
   public countries: Country[] = [];
   public JOsTotal: number = 0;
 
